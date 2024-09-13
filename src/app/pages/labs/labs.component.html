@@ -27,16 +27,59 @@
     </li>
     </ul>
     <hr />
+    <h2>For nueva sintaxis</h2>
+    @for(task of tasks(); track task; let i = $index){
+        <li> {{ i }} {{ task }}</li>
+    } @empty {
+        <li><strong>la lista esta vacia</strong></li>
+    }
     <div *ngIf="1!==1">
         Hola ExpertMedica
     </div>
+    <input type="number" [value]="person().age" (change)="changeAge($event)">
     <div *ngIf="name() === 'Felipe' && person().age > 19; else ejemploElse">
         Hola Felipe es mayor a 19
     </div>
     <ng-template #ejemploElse>
         soy menor a 19 la edad validada
     </ng-template>
+    <h2>If else nueva sintaxis</h2>
+    @if(person().name === 'Felipe' && person().age > 19){
+        <div>  Hola Felipe es mayor a 19 </div>
+    } @else {
+        <div>  soy menor a 19 la edad validada </div>
+    }
+    
 <h1>Signals</h1>
 <input type="text" [value]="name()" (change)="changeHandler($event)">
 <p>name: {{ name() }}</p>
+<hr />
+<input type="text" [value]="person().name" (change)="changeName($event)">
+<div [ngSwitch]="person().name">
+    <p *ngSwitchCase="'Pedro'">Hola Pedro</p>
+    <p *ngSwitchCase="'Maria'">Hola Maria</p>
+    <p *ngSwitchCase="'Valeria'">Hola Valeria</p>
+    <p *ngSwitchCase="'Juanita'">Hola Felipe</p>
+    <p *ngSwitchDefault> No se cumple el sw</p>
+</div>
+<h2>If else nueva sintaxis</h2>
+<div>
+    @switch(person().name){
+        @case('Pedro'){
+            <p>Hola Pedro</p>
+        }
+        @case('Maria'){
+            <p>Hola Maria</p>
+        }
+        @case('Valeria'){
+            <p> Hola Valeria</p>
+        }
+        @case('Felipe'){
+            <p> Hola Felipe </p>
+        }
+        @default {
+            <p> No secumple el sw </p>
+        }
+    }
+</div>
 

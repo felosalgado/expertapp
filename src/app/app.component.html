@@ -1,1 +1,5 @@
+<h1>Demostración del Ciclo de Vida en Angular</h1>
+
+<button (click)="toggleComponent()">Mostrar/Ocultar Componente</button>
+<app-lifecycle *ngIf="showComponent" [dataSignal]="inputData"></app-lifecycle> 
 <router-outlet></router-outlet>
