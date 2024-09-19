@@ -1,10 +1,11 @@
 import { Component, signal } from '@angular/core';
-import { CommonModule } from '@angular/common';
+import { CommonModule, getLocaleDateTimeFormat } from '@angular/common';
+import { ReversePipe } from '../../domains/shared/reverse.pipe';
 
 @Component({
   selector: 'app-labs',
   standalone: true,
-  imports: [CommonModule],
+  imports: [CommonModule, ReversePipe],
   templateUrl: './labs.component.html',
   styleUrl: './labs.component.sass'
 })
@@ -19,6 +20,7 @@ export class LabsComponent {
   age = 18;
   disabled = true;
   img = "https://w3schools.com/howto/img_avatar.png";
+  currentDate = new Date();
 
   person = signal({
     name: 'Felipes',

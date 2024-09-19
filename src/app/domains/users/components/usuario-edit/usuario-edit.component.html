@@ -1,0 +1,15 @@
+<form (ngSubmit)="actualizarUsuario()">
+    <label for="nombres">Nombre:</label>
+    <input type="text" id="nombres" [(ngModel)]="usuario.nombre" name="nombre">
+  
+    <label for="apellidos">Apellidos:</label>
+    <input type="text" id="apellido" [(ngModel)]="usuario.apellido" name="apellido" required>
+  
+    <label for="telefono">Telefono:</label>
+    <input type="text" id="telefono" [(ngModel)]="usuario.telefono" name="telefono" required>
+
+    <label for="estado">Estado:</label>
+    <input type="text" id="estado" [(ngModel)]="usuario.estado" name="estado" required>
+  
+    <button type="submit">Actualizar Usuario</button>
+  </form>

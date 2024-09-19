@@ -1,0 +1,23 @@
+<ul>
+    <li *ngFor="let usuario of usuarios">
+      {{ usuario.nombre }} {{ usuario.apellido }} ({{ usuario.telefono }})
+      <a [routerLink]="['/usuario/edit', usuario.idUsuario]">Editar</a>
+    </li>
+</ul>
+<!-- Formulario para agregar un nuevo usuario -->
+<h3>Agregar un nuevo usuario</h3>
+<form (ngSubmit)="agregarUsuario()">
+  <label for="nombre">Nombre:</label>
+  <input type="text" id="nombre" [(ngModel)]="nuevoUsuario.nombre" name="nombre" required>
+
+  <label for="apellido">Apellido:</label>
+  <input type="text" id="apellido" [(ngModel)]="nuevoUsuario.apellido" name="apellido" required>
+
+  <label for="telefono">Telefono:</label>
+  <input type="text" id="telefono" [(ngModel)]="nuevoUsuario.telefono" name="telefono" required>
+
+  <label for="estado">Estado:</label>
+  <input type="text" id="estado" [(ngModel)]="nuevoUsuario.estado" name="estado" required>
+
+  <button type="submit">Agregar Usuario</button>
+</form>

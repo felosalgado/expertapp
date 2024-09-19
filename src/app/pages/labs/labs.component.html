@@ -82,4 +82,25 @@
         }
     }
 </div>
+<hr>Pipes<hr>
+<hr>Fecha<hr>
+{{ currentDate | date:'dd/MM/yyyy' }}
+<hr>UpperCase<hr>
+{{ person().name | uppercase }}
+<hr>LowerCase<hr>
+{{ person().name | lowercase }}
+<hr>Currency<hr>
+{{ 2500 | currency:'USD' }}
+<hr>Number<hr>
+{{ 3.1416 | number:'1.2-2' }}
+<hr>Porcentaje<hr>
+{{ 0.25 | percent }}
+<hr>Slice<hr>
+{{ 'Angular' | slice:0:3 }}
+<hr>TitleCase<hr>
+{{ 'hola angular' | titlecase }}
+<hr>Reverse<hr>
+{{ 'Angular' | reverse }}
+
+
 
