@@ -1,0 +1,19 @@
+<form #resgisterForm="ngForm" (ngSubmit)="onSubmit(resgisterForm)">
+    <label for="name">Nombre:</label>
+    <input type="text" id="name" name="name" [(ngModel)]="user.name" #name="ngModel" required/>
+    <div *ngIf="name.invalid && name.touched">
+        El nombre es obligatorio.
+    </div>
+    <label for="email">Correo Electronico</label>
+    <input type="email" id="email" name="email" [(ngModel)]="user.email" #email="ngModel" required email/>
+    <div *ngIf="email.invalid && email.touched">
+        Correo inválido.
+    </div>
+    <label for="password">Contraseña</label>
+    <input type="password" id="password" name="password" [(ngModel)]="user.password" #password="ngModel" required minlength="6"/>
+    <div *ngIf="password.invalid && password.touched">
+        La contraseña debe tener al menos 6 caracteres
+    </div>
+    <button type="submit" [disabled]="resgisterForm.invalid">Registrar</button>
+
+</form>
