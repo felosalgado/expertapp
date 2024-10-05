@@ -11,6 +11,7 @@ import { FormPlantillasComponent } from './pages/forms/form-plantillas/form-plan
 import { DataexComponent } from './domains/users/components/dataex/dataex.component';
 import { FormReactivoStComponent } from './pages/labs/forms/form-reactivo-st/form-reactivo-st.component';
 import { ListarCitasComponent } from './domains/citas/components/listar-citas/listar-citas.component';
+import { ActualizarCitasComponent } from './domains/citas/components/actualizar-citas/actualizar-citas.component';
 
 
 export const routes: Routes = [
@@ -70,6 +71,10 @@ export const routes: Routes = [
         path: 'citas', 
         component: ListarCitasComponent
     },   
+    {
+        path: 'editar-cita', 
+        component: ActualizarCitasComponent
+    }, 
     {
         path: '**', 
         component: LabsComponent

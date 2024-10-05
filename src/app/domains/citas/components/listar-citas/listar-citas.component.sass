@@ -27,3 +27,21 @@ $text-color: #333
 
 .eliminar-btn
   @include btn-style($secondary-color)
+
+
+@function change-color($color, $amount)
+  @return darken($color, $amount)
+
+
+.btn-eliminar 
+  background-color: #e74c3c 
+  color: white
+  padding: 10px 20px
+  border: none
+  border-radius: 5px
+  cursor: pointer
+  
+  &:hover 
+    background-color: change-color(#f03f19, 10%)
+  
+

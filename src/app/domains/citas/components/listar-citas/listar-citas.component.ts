@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Cita } from '../../interfaces/cita.interface';
 import { CitasService } from '../../services/citas.service';
 import { CommonModule } from '@angular/common';
-import { RouterOutlet } from '@angular/router';
+import { Router, RouterOutlet } from '@angular/router';
 import { FormsModule } from '@angular/forms';
 
 @Component({
@@ -16,8 +16,11 @@ export class ListarCitasComponent implements OnInit {
 
     citas: Cita[] = [];
   
-    constructor(private citasService: CitasService) {}
-  
+    constructor(
+      private citasService: CitasService,
+      private router: Router
+    ) {}  
+    
     ngOnInit(): void {
       this.citasService.listarCitas().subscribe((citas: Cita[]) => {
         this.citas = citas;
@@ -26,7 +29,7 @@ export class ListarCitasComponent implements OnInit {
   
     // Método para editar una cita, puede redirigir a un formulario de edición
     editarCita(id: number): void {
-      console.log(`Editar cita con ID: ${id}`);
+      this.router.navigate(['/editar-cita', id]);  
     }
   
     eliminarCita(id: number): void {

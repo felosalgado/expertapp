@@ -19,14 +19,27 @@ export class CitasService {
     this.citas.push(cita);
   }
 
-  actualizarCita(id: number, citaActualizada: Cita): void {
-    const index = this.citas.findIndex(cita => cita.id === id);
-    if (index !== -1) {
-      this.citas[index] = citaActualizada;
-    }
-  }
 
   eliminarCita(id: number): void {
     this.citas = this.citas.filter(cita => cita.id !== id);
+  }
+
+
+  // Obtener una cita por su ID
+  obtenerCitaPorId(id: number): Observable<Cita> {
+    const cita = this.citas.find(c => c.id === id);
+    return of(cita!);
+  }
+
+  // Método para actualizar una cita en memoria
+  actualizarCita(citaActualizada: Cita): Observable<void> {
+    const index = this.citas.findIndex(c => c.id === citaActualizada.id);
+
+    if (index !== -1) {
+      // Actualizamos los datos de la cita en memoria
+      this.citas[index] = citaActualizada;
+    }
+
+    return of(); // Retornamos un observable vacío como confirmación
   }
 }
