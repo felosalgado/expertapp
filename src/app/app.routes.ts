@@ -12,6 +12,8 @@ import { DataexComponent } from './domains/users/components/dataex/dataex.compon
 import { FormReactivoStComponent } from './pages/labs/forms/form-reactivo-st/form-reactivo-st.component';
 import { ListarCitasComponent } from './domains/citas/components/listar-citas/listar-citas.component';
 import { ActualizarCitasComponent } from './domains/citas/components/actualizar-citas/actualizar-citas.component';
+import { CrearCitasComponent } from './domains/citas/components/crear-citas/crear-citas.component';
+import { EliminarCitasComponent } from './domains/citas/components/eliminar-citas/eliminar-citas.component';
 
 
 export const routes: Routes = [
@@ -72,8 +74,18 @@ export const routes: Routes = [
         component: ListarCitasComponent
     },   
     {
-        path: 'editar-cita', 
+        path: 'cita/edit/:id', 
         component: ActualizarCitasComponent
+    }, 
+    {
+        path: 'cita/crear-cita',
+        component: CrearCitasComponent
+        
+    },   
+    {
+        path: 'cita/eliminar/:id', 
+        component: EliminarCitasComponent
+        
     }, 
     {
         path: '**', 

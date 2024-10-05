@@ -1,1 +1,7 @@
-<p>eliminar-citas works!</p>
+<div class="eliminar-citas-container">
+    <h2>Eliminar Cita</h2>
+    <p>¿Estás seguro de que deseas eliminar esta cita?</p>
+    <button (click)="onDelete()" class="btn btn-danger">Eliminar Cita</button>
+    <button [routerLink]="['/citas']" class="btn btn-secondary">Cancelar</button>
+  </div>
+  

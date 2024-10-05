@@ -1,23 +1,31 @@
-<!-- editar-cita.component.html -->
-<div class="editar-cita">
-    <h2>Actualizar Cita</h2>
-    
-    <form  (ngSubmit)="onSubmit()">
-      
-      <label for="fecha">Fecha:</label>
-      <input type="date" id="fecha" formControlName="fecha" required>
-      
-      <label for="hora">Hora:</label>
-      <input type="time" id="hora" formControlName="hora" required>
-      
-      <label for="descripcion">Descripción:</label>
-      <textarea id="descripcion" formControlName="descripcion" rows="4" required></textarea>
+<div class="form-container">
+  <h2 class="form-title">Actualizar Cita</h2>
   
-      <div *ngIf="editarCitaForm.invalid && (editarCitaForm.dirty || editarCitaForm.touched)">
-        <p>Por favor, rellena todos los campos correctamente.</p>
+  <form [formGroup]="editarCitaForm" (ngSubmit)="onSubmit()">
+    <div class="form-group">
+      <label for="fecha">Fecha</label>
+      <input id="fecha" type="date" formControlName="fecha" class="form-control"/>
+      <div *ngIf="editarCitaForm.get('fecha')?.invalid && editarCitaForm.get('fecha')?.touched" class="error">
+        Fecha es requerida
       </div>
-  
-      <button type="submit" [disabled]="editarCitaForm.invalid">Guardar cambios</button>
-    </form>
-  </div>
-  
+    </div>
+
+    <div class="form-group">
+      <label for="hora">Hora</label>
+      <input id="hora" type="time" formControlName="hora" class="form-control"/>
+      <div *ngIf="editarCitaForm.get('hora')?.invalid && editarCitaForm.get('hora')?.touched" class="error">
+        Hora es requerida
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label for="titulo">Descripción</label>
+      <textarea id="titulo" formControlName="titulo" rows="4" class="form-control"></textarea>
+      <div *ngIf="editarCitaForm.get('titulo')?.invalid && editarCitaForm.get('titulo')?.touched" class="error">
+        Descripción es requerida
+      </div>
+    </div>
+
+    <button type="submit" class="btn-submit" [disabled]="editarCitaForm.invalid">Actualizar Cita</button>
+  </form>
+</div>

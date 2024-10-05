@@ -1,4 +1,5 @@
 <div class="citas-container">
+  <a class="nuevo-btn" [routerLink]="['/cita/crear-cita']">Crear Nuevo</a>
     <h2>Listado de Citas</h2>
     <table class="citas-tabla">
       <thead>
@@ -17,8 +18,8 @@
           <td>{{ cita.fecha | date: 'fullDate' }}</td>
           <td>{{ cita.hora | date: 'shortTime' }}</td>
           <td>
-            <button class="editar-btn" (click)="editarCita(cita.id)">Editar</button>
-            <button class="eliminar-btn" (click)="eliminarCita(cita.id)">Eliminar</button>
+            <button class="editar-btn"  [routerLink]="['/cita/edit', cita.id]">Editar</button>
+            <button class="btn-eliminar " [routerLink]="['/cita/eliminar', cita.id]">Eliminar</button>
           </td>
         </tr>
       </tbody>

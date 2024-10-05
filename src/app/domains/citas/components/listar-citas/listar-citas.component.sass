@@ -1,6 +1,8 @@
 $primary-color: #3498db
 $secondary-color: #2ecc71
 $text-color: #333
+$border-radius: 5px
+
 
 @mixin btn-style($color) 
   background-color: $color
@@ -9,9 +11,15 @@ $text-color: #333
   padding: 10px
   border-radius: 5px
   cursor: pointer
+  margin: 10px
 
 .citas-container
-  padding: 20px
+    max-width: 600px
+    margin: 0 auto
+    padding: 20px
+    background-color: #f9f9f9
+    border-radius: $border-radius
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1)
 
 .citas-lista
   list-style: none
@@ -28,10 +36,11 @@ $text-color: #333
 .eliminar-btn
   @include btn-style($secondary-color)
 
-
+.nuevo-btn
+  @include btn-style($primary-color)
+  
 @function change-color($color, $amount)
   @return darken($color, $amount)
-
 
 .btn-eliminar 
   background-color: #e74c3c 
@@ -40,8 +49,6 @@ $text-color: #333
   border: none
   border-radius: 5px
   cursor: pointer
-  
-  &:hover 
-    background-color: change-color(#f03f19, 10%)
-  
 
+  &:hover 
+    background-color: change-color(#e74c3c, 10%)
