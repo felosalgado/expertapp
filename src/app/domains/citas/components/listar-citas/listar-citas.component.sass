@@ -1,0 +1,29 @@
+$primary-color: #3498db
+$secondary-color: #2ecc71
+$text-color: #333
+
+@mixin btn-style($color) 
+  background-color: $color
+  color: white
+  border: none
+  padding: 10px
+  border-radius: 5px
+  cursor: pointer
+
+.citas-container
+  padding: 20px
+
+.citas-lista
+  list-style: none
+  padding: 0
+
+.cita-info
+  margin-bottom: 15px
+  p
+    color: $text-color
+
+.editar-btn
+  @include btn-style($primary-color)
+
+.eliminar-btn
+  @include btn-style($secondary-color)

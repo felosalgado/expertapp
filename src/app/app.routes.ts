@@ -10,6 +10,7 @@ import { FormArrayComponent } from './pages/labs/forms/form-array/form-array.com
 import { FormPlantillasComponent } from './pages/forms/form-plantillas/form-plantillas.component';
 import { DataexComponent } from './domains/users/components/dataex/dataex.component';
 import { FormReactivoStComponent } from './pages/labs/forms/form-reactivo-st/form-reactivo-st.component';
+import { ListarCitasComponent } from './domains/citas/components/listar-citas/listar-citas.component';
 
 
 export const routes: Routes = [
@@ -64,11 +65,15 @@ export const routes: Routes = [
     {
         path: 'usuario/edit/:id',
         component: UsuarioEditComponent
-    },    
+    }, 
+    {
+        path: 'citas', 
+        component: ListarCitasComponent
+    },   
     {
         path: '**', 
         component: LabsComponent
-    }
+    },
 ];
 
 
