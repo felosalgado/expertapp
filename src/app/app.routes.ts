@@ -82,7 +82,7 @@ export const routes: Routes = [
         component: CitaCreateComponent
     },
     {
-        path: 'cita/delete',
+        path: 'cita/delete/:id',
         component: CitaDeleteComponent
     },
     {

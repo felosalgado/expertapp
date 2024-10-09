@@ -27,14 +27,14 @@ export class CitaEditComponent implements OnInit {
   public citaForm : FormGroup;
 
   constructor() {  
-    console.log(this.citaService.citas());
+    
     this.citaForm = this.fb.group({
       citaId: [''],  
-      usuarioId: [''],
-      fechaCita: [''],
-      descripcion: [''],
-      lugar: [''],
-      estado: ['']       
+      usuarioId: ['',[Validators.required,Validators.min(1)]],
+      fechaCita: ['',Validators.required],
+      descripcion: ['',Validators.required],
+      lugar: ['',Validators.required],
+      estado: ['',Validators.required]       
     })
 
     effect(() => {
@@ -61,11 +61,13 @@ export class CitaEditComponent implements OnInit {
     });  
   }
 
-  onSubmit():void{    
-    this.currentCita.set(this.citaForm.value);
-    this.citaService.updateCita(this.currentCita()!).subscribe();
-    this.router.navigate(['/citas']);  
-    
+  onSubmit():void{  
+    if(this.citaForm.valid)  {
+      this.currentCita.set(this.citaForm.value);
+      this.citaService.updateCita(this.currentCita()!).subscribe( response => 
+        this.router.navigate(['/citas'])
+      );
+    }
   }
 
 
