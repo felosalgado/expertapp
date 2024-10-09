@@ -1,1 +1,52 @@
-<p>cita-edit works!</p>
+<h2>Editar Cita - Id {{ currentCita()?.citaId }}</h2>
+<hr>
+<br>
+<!-- <label for="idCita">Id Cita: </label>
+<input type="text" name="idCita" [value]="currentCita()?.citaId" disabled>
+<br><br> -->
+<form [formGroup]="citaForm" (ngSubmit)="onSubmit()">
+  <label for="idUsuario">Id Usuario: </label>
+  <input type="number" id="idUsuario" formControlName="usuarioId">
+  <br><br>
+  <label for="fechaCita">Fecha Cita: </label>
+  <input type="date" id="fechaCita" formControlName="fechaCita">
+  <br><br>
+  <label for="descripcion">Descripcion: </label>
+  <input type="text" id="descripcion" formControlName="descripcion"  >
+  <br><br>
+  <label for="lugar"> Lugar: </label>
+  <input type="text" id="lugar" formControlName="lugar" >
+  <br><br>
+  <label for="estado">Estado: </label>
+  <select id="estado"  formControlName="estado" >
+    <option value="Confirmada">Confirmada</option>
+    <option value="Pendiente">Pendiente</option>
+    <option value="Cancelada">Cancelada</option>
+  </select> 
+  <br><br>
+  <input type="hidden" formControlName="citaId" >
+  <button type="submit">Guardar</button>
+</form>
+<!-- 
+<label for="idUsuario">Id Usuario: </label>
+<input type="number" name="idUsuario" [value]="currentCita()?.usuarioId">
+<br><br>
+<label for="fechaCita">Fecha Cita: </label>
+<input type="date" name="fechaCita" [value]="currentCita()?.fechaCita | date:'yyyy-MM-dd'">
+<br><br>
+<label for="descripcion">Descripcion: </label>
+<input type="text" name="descripcion" [value]="currentCita()?.descripcion" >
+<br><br>
+<label for="lugar"> Lugar: </label>
+<input type="text" name="lugar" [value]="currentCita()?.lugar" >
+<br><br>
+<label for="estado">Estado: </label>
+<select name="estado" [value]="currentCita()?.estado" >
+  <option value="Confirmada" >Confirmada</option>
+  <option value="Pendiente" >Pendiente</option>
+  <option value="Cancelada" >Cancelada</option>
+</select> 
+<br> -->
+<pre>
+  {{ currentCita() | json }}
+</pre>

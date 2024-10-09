@@ -5,7 +5,7 @@ export interface Cita {
   descripcion:       string;
   lugar:             string;
   estado:            string;
-  fechaCreacion:     Date;
-  fechaModificacion: Date;
+  fechaCreacion?:     Date;
+  fechaModificacion?: Date;
 }
 
