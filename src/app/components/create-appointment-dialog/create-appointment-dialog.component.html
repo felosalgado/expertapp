@@ -1,0 +1,60 @@
+<div class="container-form-appointment">
+    <h2 mat-dialog-title>Crear Cita</h2>
+    <form [formGroup]="appointmentForm" (ngSubmit)="onSubmit()">
+        <mat-form-field class="input-field" appearance="outline">
+            <mat-label>Seleccionar Usuario</mat-label>
+            <mat-select formControlName="usuarioID">
+                <mat-option *ngFor="let user of users" [value]="user.idUser">
+                    {{ user.userName }} {{ user.userLastName }}
+                </mat-option>
+            </mat-select>
+            <mat-error *ngIf="selectedUser?.invalid && selectedUser?.touched">
+                Debes seleccionar un usuario
+            </mat-error>
+        </mat-form-field>
+
+        <mat-form-field class="input-field" appearance="outline">
+            <mat-label>Fecha de Cita</mat-label>
+            <input matInput [matDatepicker]="picker" placeholder="Seleccione una fecha" formControlName="fechaCita">
+            <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+            <mat-datepicker #picker></mat-datepicker>
+            <mat-error *ngIf="appointmentDate?.invalid && appointmentDate?.touched">
+                Ingrese una fecha válida
+            </mat-error>
+        </mat-form-field>
+
+         <!-- Selector de Hora -->
+         <mat-form-field class="input-field" appearance="outline">
+            <mat-label>Hora de Cita</mat-label>
+            <input matInput type="time" placeholder="Seleccione una hora" formControlName="horaCita">
+            <mat-error *ngIf="appointmentTime?.invalid && appointmentTime?.touched">
+                Ingrese una hora válida
+            </mat-error>
+        </mat-form-field>
+
+        <mat-form-field class="input-field" appearance="outline">
+            <mat-label>Descripción</mat-label>
+            <input matInput placeholder="Descripción" formControlName="descripcion" />
+            <mat-error *ngIf="description?.invalid && description?.touched">
+                La descripción es requerida
+            </mat-error>
+        </mat-form-field>
+
+        <mat-form-field class="input-field" appearance="outline">
+            <mat-label>Ubicación</mat-label>
+            <input matInput placeholder="Ubicación" formControlName="lugar" />
+            <mat-error *ngIf="location?.invalid && location?.touched">
+                La ubicación es requerida
+            </mat-error>
+        </mat-form-field>
+
+        <div mat-dialog-actions class="form-actions right-align">
+            <button mat-raised-button color="primary" type="submit" [disabled]="appointmentForm.invalid">
+                <mat-icon>check</mat-icon> Crear
+            </button>
+            <button mat-stroked-button color="warn" (click)="onNoClick()">
+                <mat-icon>cancel</mat-icon> Cancelar
+            </button>
+        </div>
+    </form>
+</div>

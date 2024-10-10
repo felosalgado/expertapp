@@ -18,4 +18,8 @@ export class HomeComponent {
     this.router.navigate(['/users']);
   }
 
+  public goToAppointments(): void {
+    this.router.navigate(['/appointments']);
+  }
+
 }
