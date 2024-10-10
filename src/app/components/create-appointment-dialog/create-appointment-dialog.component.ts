@@ -59,14 +59,18 @@ export class CreateAppointmentDialogComponent implements OnInit {
 
   loadUsers(): void {
     this.userService.getAllUsers().subscribe({
-      next: (users) => {
-        this.users = users; // Asigna los usuarios obtenidos al arreglo
-      },
-      error: (err) => {
-        console.error('Error al cargar usuarios', err); // Manejo de errores
-      }
+        next: (users) => {
+            // Ordenar los usuarios por userName antes de asignarlos
+            this.users = users.sort((a, b) => {
+                // Comparar los nombres de usuario (userName) de forma case-insensitive
+                return a.userName.toLowerCase().localeCompare(b.userName.toLowerCase());
+            });
+        },
+        error: (err) => {
+            console.error('Error al cargar usuarios', err); // Manejo de errores
+        }
     });
-  }
+}
 
   onNoClick(): void {
     this.dialogRef.close();

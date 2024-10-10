@@ -66,7 +66,6 @@ export class AppointmentListComponent implements OnInit {
   private loadAppointments(): void {
     this.appointmentService.getAllAppointments().subscribe(
       (appointments: Appointment[]) => {
-        console.log(appointments, 'appointments')
         this.dataSource.data = appointments;
       },
       (error) => {
@@ -120,7 +119,6 @@ export class AppointmentListComponent implements OnInit {
 
     dialogRef.afterClosed().subscribe(result => {
       if (result) {
-        console.log('si', appointment)
         this.appointmentService.deleteAppointment(appointment.citaID).subscribe(
           () => {
             this.openSnackBar(`Cita eliminada con éxito.`);

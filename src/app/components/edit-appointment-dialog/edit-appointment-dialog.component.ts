@@ -58,13 +58,18 @@ export class EditAppointmentDialogComponent {
   private loadUsers(): void {
     this.userService.getAllUsers().subscribe({
       next: (users) => {
-        this.users = users;
+        // Ordenar los usuarios por userName antes de asignarlos
+        this.users = users.sort((a, b) => {
+          // Comparar los nombres de usuario (userName) de forma case-insensitive
+          return a.userName.toLowerCase().localeCompare(b.userName.toLowerCase());
+        });
       },
       error: (err) => {
         console.error('Error al cargar usuarios', err);
       }
     });
   }
+
 
   // Enviar el formulario
   public onSubmit(): void {
@@ -91,7 +96,7 @@ export class EditAppointmentDialogComponent {
   }
 
   public onCancel(): void {
-    this.dialogRef.close();
+    this.dialogRef.close(false);
   }
 
   // Formatear la hora de la cita para que aparezca correctamente en el formulario
