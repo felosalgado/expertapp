@@ -1,0 +1,11 @@
+<button class="primary-button" [routerLink]="['/appointment/add']">Add</button>
+
+<ul>
+    <li>UserId-Description-Date-Site</li>
+    <li *ngFor="let appointment of appointmentList">
+        {{ appointment.UserId }} - {{ appointment.Description }} - ({{ appointment.AppointmentDate | date}}) -
+        ({{appointment.Site }})
+        <button class="primary-button" [routerLink]="['/appointment/edit', appointment.Id]">Edit</button>
+        <button class="secondary-button" [routerLink]="['/appointment/delete', appointment.Id]">delete</button>
+    </li>
+</ul>

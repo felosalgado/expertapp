@@ -10,6 +10,11 @@ import { FormArrayComponent } from './pages/labs/forms/form-array/form-array.com
 import { FormPlantillasComponent } from './pages/forms/form-plantillas/form-plantillas.component';
 import { DataexComponent } from './domains/users/components/dataex/dataex.component';
 import { FormReactivoStComponent } from './pages/labs/forms/form-reactivo-st/form-reactivo-st.component';
+import { UpdateComponent } from './domains/appointment/components/update/update.component';
+import { AddComponent } from './domains/appointment/components/add/add.component';
+import { ListComponent } from './domains/appointment/components/list/list.component';
+import { DeleteComponent } from './domains/appointment/components/delete/delete.component';
+
 
 
 export const routes: Routes = [
@@ -64,9 +69,25 @@ export const routes: Routes = [
     {
         path: 'usuario/edit/:id',
         component: UsuarioEditComponent
-    },    
+    },
     {
-        path: '**', 
+        path: 'appointment/edit/:id',
+        component: UpdateComponent
+    },
+    {
+        path: 'appointment/add',
+        component: AddComponent
+    },
+    {
+        path: 'appointment/list',
+        component: ListComponent
+    },
+    {
+        path: 'appointment/delete/:id',
+        component: DeleteComponent
+    },
+    {
+        path: '**',
         component: LabsComponent
     }
 ];

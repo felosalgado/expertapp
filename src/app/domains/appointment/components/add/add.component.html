@@ -1,0 +1,31 @@
+<h3>Agregar un nuevo appointment</h3>
+
+
+
+<form (ngSubmit)="addAppointment()" [formGroup]="myForm">
+    <label for="userId">UserId:</label>
+    <input type="text" id="userId" formControlName="UserId" required>
+    <div *ngIf="myForm.get('UserId')?.invalid && myForm.get('UserId')?.touched">UserId is required (min 1 characters)
+    </div>
+
+    <label for="description">Description:</label>
+    <input type="text" id="description" formControlName="Description" required>
+    <div *ngIf="myForm.get('Description')?.invalid && myForm.get('Description')?.touched">Description is required (min 2
+        characters)</div>
+
+    <label for="appointmentDate">Date:</label>
+    <input type="date" id="appointmentDate" formControlName="AppointmentDate" required>
+    <div *ngIf="myForm.get('AppointmentDate')?.invalid && myForm.get('AppointmentDate')?.touched">
+        Date is required
+    </div>
+
+    <label for="site">Site:</label>
+    <input type="text" id="site" formControlName="Site" required>
+    <div *ngIf="myForm.get('Site')?.invalid && myForm.get('Site')?.touched">Site is required (min 2 characters)</div>
+
+    <label for="state">State:</label>
+    <input type="text" id="state" formControlName="State" required>
+    <div *ngIf="myForm.get('State')?.invalid && myForm.get('State')?.touched">State is required (min 2 characters)</div>
+
+    <button type="submit" [disabled]="myForm.invalid">Agregar Appointment</button>
+</form>

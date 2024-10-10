@@ -1,0 +1,12 @@
+<h3>Delete Appointment</h3>
+<div *ngIf="appointment">
+    <p>¿Are you sure you want to delete appointment with ID: {{ appointment.Id }}?</p>
+    <p><strong>Description:</strong> {{ appointment.Description }}</p>
+
+    <button (click)="DeleteAppointment()">Delete</button>
+    <button routerLink="/appointment/list">Cancel</button>
+</div>
+
+<div *ngIf="!appointment">
+    <p>Cargando appointment...</p>
+</div>
