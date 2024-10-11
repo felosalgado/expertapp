@@ -1,32 +1,27 @@
 # Expertapp
-Expertapp es una aplicación web desarrollada con Angular que proporciona una interfaz intuitiva para gestionar y visualizar información de manera eficiente.
 
-![App](app-angular.jpg)
+This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 17.1.1.
 
-## Servidor de Desarrollo
+## Development server
 
-Para iniciar un servidor de desarrollo, ejecuta `ng serve` en la terminal. Luego, navega a `http://localhost:4200/`. La aplicación se recargará automáticamente si realizas cambios en los archivos de origen.
+Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
 
-## Generación de Código
+## Code scaffolding
 
-Utiliza el comando `ng generate component nombre-del-componente` para crear un nuevo componente. También puedes usar `ng generate directive|pipe|service|class|guard|interface|enum|module` para generar otros tipos de elementos en tu proyecto.
+Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
 
-## Construcción
+## Build
 
-Ejecuta `ng build` para compilar el proyecto. Los artefactos de construcción se almacenarán en el directorio `dist/`.
+Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
 
-## Ejecución de Pruebas Unitarias
+## Running unit tests
 
-Para ejecutar las pruebas unitarias, usa el comando `ng test`. Esto ejecutará las pruebas a través de [Karma](https://karma-runner.github.io).
+Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
 
-## Ejecución de Pruebas de Extremo a Extremo
+## Running end-to-end tests
 
-Ejecuta `ng e2e` para llevar a cabo las pruebas de extremo a extremo utilizando una plataforma de tu elección. Asegúrate de haber añadido primero un paquete que implemente capacidades de pruebas E2E.
+Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
 
-## Ayuda Adicional
+## Further help
 
-Si necesitas más ayuda con Angular CLI, utiliza `ng help` o visita la [Referencia de Comandos y Visión General de Angular CLI](https://angular.io/cli).
-
-## Contribuciones
-
-¡Las contribuciones son bienvenidas! Si deseas colaborar, por favor abre un *issue* o envía un *pull request* con tus sugerencias o mejoras.
+To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
