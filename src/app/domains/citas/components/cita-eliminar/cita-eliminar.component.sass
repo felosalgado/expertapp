@@ -1,0 +1,16 @@
+$primary-color: #45b39d
+$secondary-color: #a93226
+
+@mixin button-styles($background-color)
+  padding: 10px 20px
+  border: none
+  border-radius: 5px
+  background-color: $background-color
+  color: white
+  cursor: pointer
+
+.primary-button
+  @include button-styles($primary-color)
+
+.secondary-button
+  @include button-styles($secondary-color)

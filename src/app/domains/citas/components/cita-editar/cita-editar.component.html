@@ -1,20 +1,27 @@
 <h3>Editar cita {{ cita.citaId }}</h3>
 <form (ngSubmit)="actualizarCita()">
-    <label for="fechaCita">Fecha:</label>
-    <input type="date" id="fechaCita" [(ngModel)]="fechaCitaString" name="fechaCita" required>
-    <br />
+    <table border="1">
+        <tbody>
+            <tr>
+                <td><label for="fechaCita">Fecha:</label></td>
+                <td><input type="date" id="fechaCita" [(ngModel)]="fechaCitaFormato" name="fechaCita" required></td>         
+            </tr>
+            <tr>
+                <td><label for="descripcion">Descripción:</label></td>
+                <td><input type="text" id="descripcion" [(ngModel)]="cita.descripcion" name="descripcion" required></td>              
+            </tr>
+            <tr>
+                <td><label for="lugar">Lugar:</label></td>
+                <td><input type="text" id="lugar" [(ngModel)]="cita.lugar" name="lugar" required></td>            
+            </tr>
+            <tr>
+                <td><label for="estado">Estado:</label></td>   
+                <td><input type="text" id="estado" [(ngModel)]="cita.estado" name="estado" required></td>               
+            </tr>
+        </tbody>
+    </table> 
 
-    <label for="descripcion">Descripción:</label>
-    <input type="text" id="descripcion" [(ngModel)]="cita.descripcion" name="descripcion" required>
     <br />
-
-    <label for="lugar">Lugar:</label>
-    <input type="text" id="lugar" [(ngModel)]="cita.lugar" name="lugar" required>
-    <br />
-
-    <label for="estado">Estado:</label>
-    <input type="text" id="estado" [(ngModel)]="cita.estado" name="estado" required>
-    <br />
-
-    <button type="submit">Actualizar cita</button>
+    <button type="submit" class="primary-button">Actualizar cita</button>&nbsp;
+    <button type="button" class="secondary-button" [routerLink]="['/citas']">Regresar</button>
 </form>

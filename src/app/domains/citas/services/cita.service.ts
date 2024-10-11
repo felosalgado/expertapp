@@ -23,7 +23,13 @@ export class CitaService {
     return this.citas();
   }
 
-  agregarCita(citaNueva: Cita): void {
+  private obtenerSiguienteCitaId(): number {
+    const citasActuales = this.citas();
+    return citasActuales.length ? Math.max(...citasActuales.map(cita => cita.citaId)) + 1 : 1;
+  }
+
+  crearCita(citaNueva: Cita): void {
+    citaNueva.citaId = this.obtenerSiguienteCitaId();
     const citasActualizadas = [...this.citas(), citaNueva];
     this.citas.set(citasActualizadas);
   }

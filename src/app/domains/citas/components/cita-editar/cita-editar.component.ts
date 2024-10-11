@@ -4,11 +4,12 @@ import { Cita } from '../../interfaces/cita';
 import { ActivatedRoute, Router } from '@angular/router';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
+import { RouterModule } from '@angular/router';
 
 @Component({
   selector: 'app-cita-editar',
   standalone: true,
-  imports: [CommonModule, FormsModule],
+  imports: [CommonModule, FormsModule, RouterModule],
   templateUrl: './cita-editar.component.html',
   styleUrl: './cita-editar.component.sass'
 })
@@ -24,7 +25,7 @@ export class CitaEditarComponent implements OnInit {
     fechaModificacion: new Date()
   };
 
-  fechaCitaString: string = '';
+  fechaCitaFormato: string = '';
 
   constructor(
     private citaService: CitaService,
@@ -37,7 +38,7 @@ export class CitaEditarComponent implements OnInit {
     const citaObtenida = this.citaService.obtenerCitas().find(c => c.citaId === id);
     if (citaObtenida) {
       this.cita = citaObtenida;
-      this.fechaCitaString = this.formatearFecha(citaObtenida.fechaCita);
+      this.fechaCitaFormato = this.formatearFecha(citaObtenida.fechaCita);
     }
   }
 
@@ -50,7 +51,7 @@ export class CitaEditarComponent implements OnInit {
 
   actualizarCita(): void {
     if (this.cita) {
-      const [year, month, day] = this.fechaCitaString.split('-').map(Number);
+      const [year, month, day] = this.fechaCitaFormato.split('-').map(Number);
       this.cita.fechaCita = new Date(year, month - 1, day); 
       this.citaService.actualizarCita(this.cita);
       this.router.navigate(['/citas']); 

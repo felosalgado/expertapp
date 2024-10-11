@@ -4,11 +4,12 @@ import { Cita } from '../../interfaces/cita';
 import { ActivatedRoute, Router } from '@angular/router';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
+import { RouterModule } from '@angular/router';
 
 @Component({
   selector: 'app-cita-eliminar',
   standalone: true,
-  imports: [CommonModule, FormsModule],
+  imports: [CommonModule, FormsModule, RouterModule],
   templateUrl: './cita-eliminar.component.html',
   styleUrl: './cita-eliminar.component.sass'
 })

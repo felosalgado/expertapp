@@ -2,5 +2,6 @@
 <form (ngSubmit)="eliminarCita()">
     <p>¿Desea eliminar la cita?</p>
     
-    <button type="submit">Sí, eliminar cita</button>
+    <button type="submit" class="primary-button">Sí, eliminar cita</button>&nbsp;
+    <button type="button" class="secondary-button" [routerLink]="['/citas']">Regresar</button>
 </form>

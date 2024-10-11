@@ -1,7 +1,9 @@
 <h3>Lista de citas</h3>
-<table>
+<table border="1">
   <thead>
     <tr>
+      <th>Código de cita</th>
+      <!--<th>Código de usuario</th>-->
       <th>Usuario</th>
       <th>Fecha de cita</th>
       <th>Descripción</th>
@@ -12,14 +14,16 @@
   </thead>
   <tbody>
     <tr *ngFor="let cita of citas">
+      <td>{{ cita.citaId }}</td>
+      <!--<td>{{ cita.usuarioId }}</td>-->
       <td>{{ obtenerNombreCompleto(cita.usuarioId) }}</td>
       <td>{{ cita.fechaCita | date:'dd/MM/yyyy' }}</td>
       <td>{{ cita.descripcion }}</td>
       <td>{{ cita.lugar }}</td>
       <td>{{ cita.estado }}</td>
-      <td><a [routerLink]="['/cita/editar', cita.citaId]">Editar</a>&nbsp;<a [routerLink]="['/cita/eliminar', cita.citaId]">Eliminar</a></td>
+      <td><b><a [routerLink]="['/cita/editar', cita.citaId]">Editar</a>&nbsp;<a [routerLink]="['/cita/eliminar', cita.citaId]">Eliminar</a></b></td>
     </tr>
   </tbody>
 </table>
 <br />
-<a [routerLink]="['/cita/crear']">Crear</a>
+<button type="button" class="primary-button" [routerLink]="['/cita/crear']">Crear</button>
