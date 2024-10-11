@@ -1,40 +1,16 @@
-$primary-color: #3498db
-$secondary-color: #2ecc71
+.home-container
+  display: flex
+  justify-content: center
+  align-items: center
+  height: 100vh
+  margin: 0
+  background: linear-gradient(to right, #2196F3, #21CBF3)
 
-h1
-    background-color: $primary-color
-    color: $secondary-color
+  mat-card
+    width: 300px
+    margin: 10px
 
-nav
-  ul
-    list-style: none
-    padding: 0
-li
-      display: inline-block
-      margin-right: 15px
-a
-        text-decoration: none
-        color: $primary-color
-
-@mixin button-styles($background-color)
-  padding: 10px 20px
-  border: none
-  border-radius: 5px
-  background-color: $background-color
-  color: white
-  cursor: pointer
-
-.primary-button
-  @include button-styles($primary-color)
-
-.secondary-button
-  @include button-styles($secondary-color)
-
-@function adjust-brightness($color, $amount)
-  @return lighten($color, $amount)
-  
-.header
-  background-color: adjust-brightness($primary-color, 20%)
-  color: white
-
-
+    mat-card-actions
+      display: flex
+      justify-content: center
+      align-items: center
