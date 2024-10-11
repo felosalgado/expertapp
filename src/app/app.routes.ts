@@ -10,6 +10,10 @@ import { FormArrayComponent } from './pages/labs/forms/form-array/form-array.com
 import { FormPlantillasComponent } from './pages/forms/form-plantillas/form-plantillas.component';
 import { DataexComponent } from './domains/users/components/dataex/dataex.component';
 import { FormReactivoStComponent } from './pages/labs/forms/form-reactivo-st/form-reactivo-st.component';
+import { CitaComponent } from './domains/citas/components/cita/cita.component';
+import { CitaEditarComponent } from './domains/citas/components/cita-editar/cita-editar.component';
+import { CitaEliminarComponent } from './domains/citas/components/cita-eliminar/cita-eliminar.component';
+import { CitaCrearComponent } from './domains/citas/components/cita-crear/cita-crear.component';
 
 
 export const routes: Routes = [
@@ -64,7 +68,23 @@ export const routes: Routes = [
     {
         path: 'usuario/edit/:id',
         component: UsuarioEditComponent
-    },    
+    },   
+    {
+        path: 'citas',
+        component: CitaComponent
+    },
+    {
+        path: 'cita/crear',
+        component: CitaCrearComponent
+    }, 
+    {
+        path: 'cita/editar/:id',
+        component: CitaEditarComponent
+    },   
+    {
+        path: 'cita/eliminar/:id',
+        component: CitaEliminarComponent
+    }, 
     {
         path: '**', 
         component: LabsComponent

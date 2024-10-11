@@ -1,0 +1,7 @@
+<h3>Lista de citas</h3>
+<ul>
+    <li *ngFor="let cita of citas">
+      {{ cita.usuarioId }} - {{ cita.fechaCita | date:'dd/MM/yyyy' }} - {{ cita.descripcion }} - {{ cita.lugar }}
+      <a [routerLink]="['/cita/editar', cita.citaId]">Editar</a>
+    </li>
+</ul>
