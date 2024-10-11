@@ -1,44 +1,43 @@
 <h2>Editar Cita - Id {{ currentCita()?.citaId }}</h2>
 <hr>
 <br>
-<form [formGroup]="citaForm" (ngSubmit)="onSubmit()">
-  <label for="idUsuario">Id Usuario: </label>
-  <input type="number" id="idUsuario" formControlName="usuarioId">
-  <div *ngIf="citaForm.get( 'usuarioId' )?.invalid && citaForm.get( 'usuarioId' )?.touched ">
-    El Id del usuario es obligatorio
-  </div>
-  <br><br>
-  <label for="fechaCita">Fecha Cita: </label>
-  <input type="date" id="fechaCita" formControlName="fechaCita">
-  <div *ngIf="citaForm.get( 'fechaCita' )?.invalid && citaForm.get( 'fechaCita' )?.touched ">
-    La Fecha de la cita es obligatoria.
-  </div>
-  <br><br>
-  <label for="descripcion">Descripcion: </label>
-  <input type="text" id="descripcion" formControlName="descripcion"  >
-  <div *ngIf="citaForm.get( 'descripcion' )?.invalid && citaForm.get( 'descripcion' )?.touched ">
-    La Descripción es obligatoria.
-  </div>
-  <br><br>
-  <label for="lugar"> Lugar: </label>
-  <input type="text" id="lugar" formControlName="lugar" >
-  <div *ngIf="citaForm.get( 'lugar' )?.invalid && citaForm.get( 'lugar' )?.touched ">
-    El lugar es obligatorio.
-  </div>
-  <br><br>
-  <label for="estado">Estado: </label>
-  <select id="estado"  formControlName="estado" >
-    <option value="Confirmada">Confirmada</option>
-    <option value="Pendiente">Pendiente</option>
-    <option value="Cancelada">Cancelada</option>
-  </select> 
-  <div *ngIf="citaForm.get( 'estado' )?.invalid && citaForm.get( 'estado' )?.touched ">
-    Debe seleccionar un estado.
-  </div>
-  <br><br>
-  <input type="hidden" formControlName="citaId" >
-  <button type="submit">Guardar</button>
-</form>
-<pre>
-  {{ currentCita() | json }}
-</pre>
+<div class="form-width">
+  <form [formGroup]="citaForm" (ngSubmit)="onSubmit()" class="form-theme">
+    <label for="idUsuario">Id Usuario: </label>
+    <input type="number" id="idUsuario" formControlName="usuarioId">
+    <div *ngIf="citaForm.get( 'usuarioId' )?.invalid && citaForm.get( 'usuarioId' )?.touched ">
+      El Id del usuario es obligatorio
+    </div>
+    <br><br>
+    <label for="fechaCita">Fecha Cita: </label>
+    <input type="date" id="fechaCita" formControlName="fechaCita">
+    <div *ngIf="citaForm.get( 'fechaCita' )?.invalid && citaForm.get( 'fechaCita' )?.touched ">
+      La Fecha de la cita es obligatoria.
+    </div>
+    <br><br>
+    <label for="descripcion">Descripcion: </label>
+    <input type="text" id="descripcion" formControlName="descripcion">
+    <div *ngIf="citaForm.get( 'descripcion' )?.invalid && citaForm.get( 'descripcion' )?.touched ">
+      La Descripción es obligatoria.
+    </div>
+    <br><br>
+    <label for="lugar">Lugar: </label><br>
+    <input type="text" id="lugar" formControlName="lugar">
+    <div *ngIf="citaForm.get( 'lugar' )?.invalid && citaForm.get( 'lugar' )?.touched ">
+      El lugar es obligatorio.
+    </div>
+    <br><br>
+    <label for="estado">Estado: </label>
+    <select id="estado" formControlName="estado">
+      <option value="Confirmada">Confirmada</option>
+      <option value="Pendiente">Pendiente</option>
+      <option value="Cancelada">Cancelada</option>
+    </select>
+    <div *ngIf="citaForm.get( 'estado' )?.invalid && citaForm.get( 'estado' )?.touched ">
+      Debe seleccionar un estado.
+    </div>
+    <br><br>
+    <input type="hidden" formControlName="citaId">
+    <button type="submit">Guardar</button>
+  </form>
+</div>

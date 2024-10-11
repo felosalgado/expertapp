@@ -1,0 +1,52 @@
+// Variables de la paleta de colores verdes
+$primary-green: #2e7d32
+$secondary-green: #66bb6a
+$light-green: #a5d6a7
+$dark-green: #1b5e20
+$background-green: #e8f5e9
+$white: #ffffff
+$gray: #b0bec5
+  
+// Estilos para la tabla
+table
+    width: 90%
+    border-collapse: collapse
+    margin-top: 20px
+
+    th, td
+        padding: 10px
+        border: 1px solid $primary-green
+        text-align: left        
+
+    th
+        background-color: $primary-green
+        color: $white
+        font-weight: bold
+
+    td
+        background-color: $white
+        color: $dark-green
+
+    tr:nth-child(even)
+        background-color: $light-green
+
+    tr:hover
+        background-color: $secondary-green
+        color: $white
+
+@mixin a-styles($color)
+    color: $color
+    text-decoration: none
+    font-weight: bold
+    transition: color 0.3s, text-decoration 0.3s
+
+// Estilos para los enlaces (a)
+a
+    @include a-styles($primary-green)
+
+@function adjust-brightness($color, $amount)
+  @return lighten($color, $amount)
+
+.td-estado
+    color: adjust-brightness($dark-green,80%)
+    font-weight: bold

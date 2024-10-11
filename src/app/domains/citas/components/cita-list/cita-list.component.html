@@ -3,21 +3,29 @@
 <br>
 <a routerLink="/cita/create">Nueva Cita</a>
 <br><br>
-<div *ngIf="citas()" >
+<div *ngIf="citas()">
   <table>
     <thead>
-      <td>Id Cita</td><td>Id Usuario</td><td>Descripcion</td><td>Lugar</td><td>Fecha</td><td>Estado</td><td></td>
+      <tr>
+        <th>Id Cita</th>
+        <th>Id Usuario</th>
+        <th>Descripcion</th>
+        <th>Lugar</th>
+        <th>Fecha</th>
+        <th>Estado</th>
+        <th></th>
+      </tr>
     </thead>
     <tbody *ngFor="let cita of citas()">
-      <tr><td> {{cita.citaId}}</td><td>{{cita.usuarioId}}</td><td>{{cita.descripcion}}</td>
-        <td>{{cita.lugar}}</td><td>{{cita.fechaCita | date:'dd/MM/yyyy'}}</td><td>{{cita.estado}}</td>
-        <td><a [routerLink]="['/cita/edit', cita.citaId]">Editar</a> | <a [routerLink]="['/cita/delete', cita.citaId]">Eliminar</a> </td>
+      <tr>
+        <td> {{cita.citaId}}</td>
+        <td>{{cita.usuarioId}}</td>
+        <td>{{cita.descripcion}}</td>
+        <td>{{cita.lugar}}</td>
+        <td>{{cita.fechaCita | date:'dd/MM/yyyy'}}</td>
+        <td class="td-estado">{{cita.estado}}</td>
+        <td><a [routerLink]="['/cita/edit', cita.citaId]">Editar</a> | <a
+            [routerLink]="['/cita/delete', cita.citaId]">Eliminar</a> </td>
       </tr>
     </tbody>
   </table>
- 
-  <h2>Datos:</h2>
-    <pre>{{ citas() | json }}</pre>
-</div>
-
-
