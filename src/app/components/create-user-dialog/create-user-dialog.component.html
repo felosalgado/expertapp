@@ -1,0 +1,55 @@
+<div class="container-form-user">
+    <h2 mat-dialog-title>Crear Usuario</h2>
+    <form [formGroup]="userForm" (ngSubmit)="onSubmit()">
+        <mat-form-field class="input-field" appearance="outline">
+            <mat-label>Nombre</mat-label>
+            <input matInput placeholder="Nombre" formControlName="userName" />
+            <mat-error *ngIf="userName?.invalid && userName?.touched">
+                Nombre es requerido
+            </mat-error>
+        </mat-form-field>
+
+        <mat-form-field class="input-field" appearance="outline">
+            <mat-label>Apellido</mat-label>
+            <input matInput placeholder="Apellido" formControlName="userLastName" />
+            <mat-error *ngIf="userLastName?.invalid && userLastName?.touched">
+                Apellido es requerido
+            </mat-error>
+        </mat-form-field>
+
+        <mat-form-field class="input-field" appearance="outline">
+            <mat-label>Email</mat-label>
+            <input matInput placeholder="Email" formControlName="userEmail" />
+            <mat-error *ngIf="userEmail?.invalid && userEmail?.touched">
+                Ingrese un email válido
+            </mat-error>
+        </mat-form-field>
+
+        <mat-form-field class="input-field" appearance="outline">
+            <mat-label>Teléfono</mat-label>
+            <input matInput placeholder="Teléfono" formControlName="userPhone" />
+            <mat-error *ngIf="userPhone?.invalid && userPhone?.touched">
+                Ingrese un teléfono válido de 10 dígitos
+            </mat-error>
+        </mat-form-field>
+
+        <mat-form-field class="input-field" appearance="outline">
+            <mat-label>Fecha de Nacimiento</mat-label>
+            <input matInput [matDatepicker]="picker" placeholder="Seleccione una fecha" formControlName="userDateBirth">
+            <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+            <mat-datepicker #picker></mat-datepicker>
+            <mat-error *ngIf="userDateBirth?.invalid && userDateBirth?.touched">
+                Ingrese una fecha válida
+            </mat-error>
+        </mat-form-field>
+
+        <div mat-dialog-actions class="form-actions right-align">
+            <button mat-raised-button color="primary" type="submit" [disabled]="userForm.invalid">
+                <mat-icon>check</mat-icon> Crear
+            </button>
+            <button mat-stroked-button color="warn" (click)="onNoClick()">
+                <mat-icon>cancel</mat-icon> Cancelar
+            </button>
+        </div>
+    </form>
+</div>

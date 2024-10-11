@@ -1,0 +1,82 @@
+<div class="container-form-Cita">
+    <h2 mat-dialog-title>Editar Cita</h2>
+    <form [formGroup]="editCitaForm" (ngSubmit)="onSubmit()">
+        <!-- Selección de usuario -->
+        <mat-form-field class="input-field" appearance="outline">
+            <mat-label>Seleccionar Usuario</mat-label>
+            <mat-select formControlName="usuarioID">
+                <mat-option *ngFor="let user of users" [value]="user.idUser">
+                    {{ user.userName }} {{ user.userLastName }}
+                </mat-option>
+            </mat-select>
+            <mat-error
+                *ngIf="editCitaForm.get('usuarioID')?.invalid && editCitaForm.get('usuarioID')?.touched">
+                Debes seleccionar un usuario
+            </mat-error>
+        </mat-form-field>
+
+        <!-- Selector de Fecha -->
+        <mat-form-field class="input-field" appearance="outline">
+            <mat-label>Fecha de Cita</mat-label>
+            <input matInput [matDatepicker]="picker" placeholder="Seleccione una fecha" formControlName="fechaCita">
+            <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+            <mat-datepicker #picker></mat-datepicker>
+            <mat-error *ngIf="CitaDate?.invalid && CitaDate?.touched">
+                Ingrese una fecha válida
+            </mat-error>
+        </mat-form-field>
+
+        <!-- Selector de Hora -->
+        <mat-form-field class="input-field" appearance="outline">
+            <mat-label>Hora de Cita</mat-label>
+            <input matInput type="time" placeholder="Seleccione una hora" formControlName="horaCita">
+            <mat-error *ngIf="CitaTime?.invalid && CitaTime?.touched">
+                Ingrese una hora válida
+            </mat-error>
+        </mat-form-field>
+
+        <!-- Descripción -->
+        <mat-form-field class="input-field" appearance="outline">
+            <mat-label>Descripción</mat-label>
+            <input matInput placeholder="Descripción" formControlName="descripcion" />
+            <mat-error
+                *ngIf="editCitaForm.get('descripcion')?.invalid && editCitaForm.get('descripcion')?.touched">
+                La descripción es requerida
+            </mat-error>
+        </mat-form-field>
+
+        <!-- Ubicación -->
+        <mat-form-field class="input-field" appearance="outline">
+            <mat-label>Ubicación</mat-label>
+            <input matInput placeholder="Ubicación" formControlName="lugar" />
+            <mat-error *ngIf="editCitaForm.get('lugar')?.invalid && editCitaForm.get('lugar')?.touched">
+                La ubicación es requerida
+            </mat-error>
+        </mat-form-field>
+
+        <!-- Estado -->
+        <mat-form-field class="input-field" appearance="outline">
+            <mat-label>Estado</mat-label>
+            <mat-select formControlName="estado">
+                <mat-option value="Pendiente">Pendiente</mat-option>
+                <mat-option value="Confirmada">Confirmada</mat-option>
+                <mat-option value="Cancelada">Cancelada</mat-option>
+                <mat-option value="Completada">Completada</mat-option>
+                <mat-option value="Reprogramada">Reprogramada</mat-option>
+            </mat-select>
+            <mat-error *ngIf="editCitaForm.get('estado')?.invalid && editCitaForm.get('estado')?.touched">
+                El estado es requerido
+            </mat-error>
+        </mat-form-field>
+
+        <!-- Botones de acción -->
+        <div mat-dialog-actions class="form-actions right-align">
+            <button mat-raised-button color="primary" type="submit" [disabled]="editCitaForm.invalid">
+                <mat-icon>check</mat-icon> Guardar
+            </button>
+            <button mat-stroked-button color="warn" type="button" (click)="onCancel()">
+                <mat-icon>cancel</mat-icon> Cancelar
+            </button>
+        </div>
+    </form>
+</div>
