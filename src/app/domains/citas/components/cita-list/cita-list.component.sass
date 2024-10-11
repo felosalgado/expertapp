@@ -1,0 +1,60 @@
+h3
+    text-align: center
+    text-transform: uppercase
+
+$primary-color: #6495ed
+$hover-color: lighten($primary-color, 10%) 
+
+table
+  width: 100%
+  border-collapse: separate 
+  border-spacing: 0 
+  margin: 10px 0
+  font-size: 15px
+  border: 1px solid $primary-color
+  border-radius: 10px
+
+  thead
+    background-color: $primary-color
+
+  th, td
+    padding: 0px
+    text-align: left
+    border: 1px solid $primary-color
+
+  th:first-child 
+    border-top-left-radius: 10px
+
+  th:last-child 
+    border-top-right-radius: 10px
+
+  tbody tr:last-child td:first-child 
+    border-bottom-left-radius: 10px
+
+  tbody tr:last-child td:last-child
+    border-bottom-right-radius: 10px
+
+  th
+    color: white
+    padding: 0px 5px
+    font-weight: bold
+    border: 1px solid white
+    
+
+  tbody tr:nth-child(even)
+    background-color: white
+
+  tbody tr:hover
+    background-color: $hover-color
+
+.table-acciones
+  display: flex
+  flex-direction: row
+  flex-wrap: nowrap
+  align-content: center
+  justify-content: center
+  align-items: center
+
+  button
+    padding: 5px !important
+    margin: 0px 2px !important

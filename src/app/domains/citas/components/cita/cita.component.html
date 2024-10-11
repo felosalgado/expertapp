@@ -1,0 +1,59 @@
+<!-- Formulario para agregar un nuevo usuario -->
+<div class="div-card ">
+  <h3>Agregar una nueva cita</h3>
+  <form (ngSubmit)="agregarCita()" #citaForm="ngForm" class="form-grid">
+    <label for="usuario">Usuario:</label>
+    <select
+      id="usuario"
+      [(ngModel)]="nuevaCita.idUsuario"
+      name="usuario"
+      required
+    >
+      <option value="0">Selecciona un usuario</option>
+      <!-- Opcional para que no se envíe vacío -->
+      <option *ngFor="let usuario of usuarios" [value]="usuario.idUsuario">
+        {{ usuario.idUsuario }} - {{ usuario.nombre }} {{ usuario.apellido }}
+      </option>
+    </select>
+
+    <label for="fecha">Fecha de la Cita:</label>
+    <input
+      id="fecha"
+      type="datetime-local"
+      [(ngModel)]="nuevaCita.fechaCita"
+      name="fecha"
+      required
+    />
+
+    <label for="descipcion">Descripción:</label>
+    <input
+      type="text"
+      id="descipcion"
+      [(ngModel)]="nuevaCita.descipcion"
+      name="descipcion"
+      required
+    />
+
+    <label for="lugar">Lugar:</label>
+    <input
+      type="text"
+      id="lugar"
+      [(ngModel)]="nuevaCita.lugar"
+      name="lugar"
+      required
+    />
+
+    <label for="estado">Estado:</label>
+    <input
+      type="text"
+      id="estado"
+      [(ngModel)]="nuevaCita.estado"
+      name="estado"
+      required
+    />
+
+    <button type="submit" class="button-primary" [disabled]="!citaForm.valid">Agregar Cita</button>
+  </form>
+</div>
+<!-- Componente lista de Citas -->
+<app-cita-list [citas]="citas"></app-cita-list>

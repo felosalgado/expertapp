@@ -1,0 +1,45 @@
+<div *ngIf="citas" class="div-card">
+  <h3>Lista de citas</h3>
+  <table>
+    <thead>
+      <tr>
+        <th>IDCita</th>
+        <th>IDUsuario</th>
+        <th>Fecha de Cita</th>
+        <th>Hora de Cita</th>
+        <th>Descripción</th>
+        <th>Lugar</th>
+        <th>Estado</th>
+        <th>Fecha de Creación</th>
+        <th>Fecha de Modificación</th>
+        <th>Acciones</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let cita of citas">
+        <td>{{ cita.idCita }}</td>
+        <td>{{ getUsuarioNombre(cita.idUsuario) }}</td>
+        <td>{{ cita.fechaCita | date : "dd/MM/yyyy" }}</td>
+        <td>{{ cita.fechaCita | date : "mm:ss" }}</td>
+        <td>{{ cita.descipcion }}</td>
+        <td>{{ cita.lugar }}</td>
+        <td>{{ cita.estado }}</td>
+        <td>{{ cita.fechaCreacion | date : "dd/MM/yyyy" }}</td>
+        <td>{{ cita.fechaModificacion | date : "dd/MM/yyyy" }}</td>
+        <td>
+          <div class="table-acciones">
+            <button (click)="editarCita(cita.idCita)" class="button-success">
+              Editar
+            </button>
+            <button
+              (click)="eliminarCita(cita.idCita)"
+              class="button-secondary"
+            >
+              Eliminar
+            </button>
+          </div>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>
