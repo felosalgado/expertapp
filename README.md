@@ -1,6 +1,7 @@
 # Expertapp
-
 Expertapp es una aplicación web desarrollada con Angular que proporciona una interfaz intuitiva para gestionar y visualizar información de manera eficiente.
+
+![App](app-angular.jpg)
 
 ## Servidor de Desarrollo
 
