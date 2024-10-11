@@ -1,0 +1,67 @@
+$primary-color: #3498db
+$secondary-color: #2ecc71
+$error-color: #e74c3c
+$border-radius: 5px
+$input-padding: 10px
+$transition-duration: 0.3s
+
+@mixin button-style($bg-color)
+    background-color: $bg-color
+    color: white
+    padding: 10px 20px
+    border: none
+    border-radius: $border-radius
+    font-size: 16px
+    cursor: pointer
+    transition: background-color $transition-duration ease
+
+    &:hover
+      background-color: darken($bg-color, 10%)
+
+    &:disabled
+      background-color: lighten($bg-color, 20%)
+      cursor: not-allowed
+
+.form-container
+    max-width: 600px
+    margin: 0 auto
+    padding: 20px
+    background-color: #f9f9f9
+    border-radius: $border-radius
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1)
+
+.form-title
+    text-align: center
+    color: $primary-color
+    font-size: 24px
+    margin-bottom: 20px
+
+.form-group
+    margin-bottom: 20px
+
+label
+    font-size: 16px
+    color: #333
+    display: block
+    margin-bottom: 5px
+
+.form-control
+    width: 100%
+    padding: $input-padding
+    font-size: 16px
+    border: 1px solid #ccc
+    border-radius: $border-radius
+    transition: border-color $transition-duration ease
+
+    &:focus
+        border-color: $primary-color
+        outline: none
+
+.error
+    margin-top: 5px
+    font-size: 14px
+    color: $error-color
+
+.btn-submit
+   @include button-style($primary-color)
+   width: 100%

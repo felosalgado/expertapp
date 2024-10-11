@@ -1,0 +1,34 @@
+<form [formGroup]="usuarioForm" (ngSubmit)="onSubmit()">
+    <label for="nombre">Nombre:</label>
+    <input type="text" id="nombre" formControlName="nombre" />
+    <div *ngIf="usuarioForm.get('nombre')?.invalid && usuarioForm.get('nombre')?.touched">
+      El nombre es obligatorio
+    </div>
+  
+    <label for="apellido">Apellido:</label>
+    <input type="text" id="apellido" formControlName="apellido" />
+    <div *ngIf="usuarioForm.get('apellido')?.invalid && usuarioForm.get('apellido')?.touched">
+      El apellido es obligatorio
+    </div>
+  
+    <label for="telefono">Teléfono:</label>
+    <input type="text" id="telefono" formControlName="telefono" />
+    <div *ngIf="usuarioForm.get('telefono')?.invalid && usuarioForm.get('telefono')?.touched">
+      El teléfono es obligatorio y debe contener solo números
+    </div>
+  
+    <label for="estado">Estado:</label>
+    <input type="text" id="estado" formControlName="estado" />
+    <div *ngIf="usuarioForm.get('estado')?.invalid && usuarioForm.get('estado')?.touched">
+      El estado es obligatorio
+    </div>
+  
+    <label for="fechaCreacion">Fecha de Creación:</label>
+    <input type="date" id="fechaCreacion" formControlName="fechaCreacion" />
+    <div *ngIf="usuarioForm.get('fechaCreacion')?.invalid && usuarioForm.get('fechaCreacion')?.touched">
+      La fecha de creación es obligatoria
+    </div>
+  
+    <button type="submit" [disabled]="usuarioForm.invalid">Enviar</button>
+  </form>
+  

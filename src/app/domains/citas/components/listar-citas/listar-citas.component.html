@@ -1,0 +1,27 @@
+<div class="citas-container">
+  <h2>Listado de Citas</h2>
+  <table class="citas-tabla">
+    <thead>
+      <tr>
+        <th>#</th>
+        <th>Título</th>
+        <th>Fecha</th>
+        <th>Hora</th>
+        <th>Acciones</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let cita of citas; let i = index">
+        <td>{{ i + 1 }}</td>
+        <td>{{ cita.titulo }}</td>
+        <td>{{ cita.fecha | date: 'fullDate' }}</td>
+        <td>{{ cita.hora | date: 'shortTime' }}</td>
+        <td>
+          <button class="editar-btn" [routerLink]="['/cita/edit', cita.id]">Editar</button>
+          <button class="eliminar-btn" [routerLink]="['/cita/eliminar', cita.id]">Eliminar</button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+  <a class="nuevo-btn" [routerLink]="['/cita/crear-cita']">Nueva cita</a>
+</div>

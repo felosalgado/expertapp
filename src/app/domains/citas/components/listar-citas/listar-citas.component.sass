@@ -1,0 +1,81 @@
+$primary-color: #3498db
+$secondary-color: #2ecc71
+$danger-color: #e74c3c
+$text-color: #333
+$background-color: #f4f6f9
+$border-radius: 8px
+$box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1)
+$transition: all 0.3s ease
+
+@mixin btn-style($color) 
+  background-color: $color
+  color: white
+  border: none
+  padding: 12px 16px
+  border-radius: $border-radius
+  cursor: pointer
+  margin: 10px 0
+  box-shadow: $box-shadow
+  transition: $transition
+  font-size: 14px
+  &:hover
+    background-color: darken($color, 10%)
+    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.15)
+
+.citas-container
+  max-width: 800px
+  margin: 20px auto
+  padding: 30px
+  background-color: $background-color
+  border-radius: $border-radius
+  box-shadow: $box-shadow
+
+.citas-tabla
+  width: 100%
+  border-collapse: collapse
+  margin: 20px 0
+
+  th, td
+    padding: 12px 15px
+    text-align: left
+    border-bottom: 1px solid #ddd
+
+  th
+    background-color: lighten($primary-color, 40%)
+    color: $primary-color
+
+  tr:nth-child(even)
+    background-color: #f9f9f9
+
+.cita-info
+  margin-bottom: 15px
+  p
+    color: $text-color
+
+.editar-btn
+  @include btn-style($primary-color)
+
+.eliminar-btn
+  @include btn-style($danger-color)
+
+.nuevo-btn
+  @include btn-style($secondary-color)
+  text-align: center
+  display: inline-block
+
+.btn-eliminar 
+  @include btn-style($danger-color)
+
+h2
+  color: $primary-color
+  font-size: 24px
+  margin-bottom: 20px
+  text-align: center
+
+a.nuevo-btn
+  display: inline-block
+  text-decoration: none
+  &:hover
+    text-decoration: none
+    background-color: darken($secondary-color, 10%)
+

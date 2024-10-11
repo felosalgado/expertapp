@@ -1,0 +1,47 @@
+$primary-color: #3498db
+$secondary-color: #2ecc71
+$text-color: #333
+$hover-color: #2980b9
+$border-radius: 5px
+
+h1
+  color: $text-color
+
+nav
+  background-color: $primary-color
+  padding: 15px
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1)
+  border-radius: $border-radius
+  margin-bottom: 20px
+
+  ul
+    list-style: none
+    padding: 0
+
+    li
+      display: inline-block
+      margin-right: 20px
+
+      a
+        text-decoration: none
+        color: white
+        font-weight: bold
+        transition: background-color 0.3s, color 0.3s
+        padding: 10px 15px
+        border-radius: $border-radius
+
+        &:hover
+          background-color: $hover-color
+          color: white
+
+.primary-button
+  padding: 10px 20px
+  border: none
+  border-radius: $border-radius
+  background-color: $secondary-color
+  color: white
+  cursor: pointer
+  transition: background-color 0.3s
+
+  &:hover
+    background-color: darken($secondary-color, 10%)

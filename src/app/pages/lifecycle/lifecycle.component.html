@@ -1,0 +1,6 @@
+<h3>Ciclo de Vida del Componente</h3>
+<p>Valor de Input: {{ dataSignal() }}</p>
+
+<input [ngModel]="dataSignal()" (ngModelChange)="updateData($event)" placeholder="Cambia el valor de @Input" />
+
+

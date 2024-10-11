@@ -1,0 +1,13 @@
+<form [formGroup]="pedidoForm" (ngSubmit)="onSubmit()">
+    <div formArrayName="productos">
+      <div *ngFor="let producto of productos.controls; let i = index" [formGroupName]="i">
+        <label>Producto {{ i + 1 }}</label>
+        <input formControlName="nombre" placeholder="Nombre del producto" />
+        <input formControlName="cantidad" type="number" placeholder="Cantidad" />
+        <button type="button" (click)="eliminarProducto(i)">Eliminar</button>
+      </div>
+    </div>
+    
+    <button type="button" (click)="agregarProducto()">Agregar Producto</button>
+    <button type="submit" [disabled]="pedidoForm.invalid">Enviar Pedido</button>
+  </form>

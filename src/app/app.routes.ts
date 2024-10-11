@@ -1,0 +1,96 @@
+import { Routes } from '@angular/router';
+import { HomeComponent } from './pages/home/home.component';
+import { LabsComponent } from './pages/labs/labs.component';
+import { LifecycleComponent } from './pages/lifecycle/lifecycle.component';
+import { UsuarioComponent } from './domains/users/components/usuario/usuario.component';
+import { UsuarioEditComponent } from './domains/users/components/usuario-edit/usuario-edit.component';
+import { FormExampleComponent } from './pages/labs/forms/form-example/form-example.component';
+import { FormReactivoComponent } from './pages/labs/forms/form-reactivo/form-reactivo.component';
+import { FormArrayComponent } from './pages/labs/forms/form-array/form-array.component';
+import { FormPlantillasComponent } from './pages/forms/form-plantillas/form-plantillas.component';
+import { DataexComponent } from './domains/users/components/dataex/dataex.component';
+import { FormReactivoStComponent } from './pages/labs/forms/form-reactivo-st/form-reactivo-st.component';
+import { ListarCitasComponent } from './domains/citas/components/listar-citas/listar-citas.component';
+import { ActualizarCitasComponent } from './domains/citas/components/actualizar-citas/actualizar-citas.component';
+import { CrearCitasComponent } from './domains/citas/components/crear-citas/crear-citas.component';
+import { EliminarCitasComponent } from './domains/citas/components/eliminar-citas/eliminar-citas.component';
+
+
+export const routes: Routes = [
+    {
+        path: '',
+        component: HomeComponent
+    },
+    {
+        path: 'labs',
+        component: LabsComponent
+    },
+    {
+        path: 'lifecycle',
+        component: LifecycleComponent
+    },
+    {
+        path: 'forms',
+        component: FormExampleComponent
+    },
+    {
+        path: 'formsreactivo',
+        component: FormReactivoComponent
+    },
+    {
+        path: 'formsarray',
+        component: FormArrayComponent
+    },
+    {
+        path: 'form-plantillas',
+        component: FormPlantillasComponent
+    },
+    {
+        path: 'form-reactivo',
+        component: FormReactivoComponent
+    },
+    {
+        path: 'form-array',
+        component: FormArrayComponent
+    },
+    {
+        path: 'dataex',
+        component: DataexComponent
+    },
+    {
+        path: 'form-reactivo-st',
+        component: FormReactivoStComponent
+    },
+    {
+        path: 'usuarios',
+        component: UsuarioComponent
+    },
+    {
+        path: 'usuario/edit/:id',
+        component: UsuarioEditComponent
+    }, 
+    {
+        path: 'citas', 
+        component: ListarCitasComponent
+    },   
+    {
+        path: 'cita/edit/:id', 
+        component: ActualizarCitasComponent
+    }, 
+    {
+        path: 'cita/crear-cita',
+        component: CrearCitasComponent
+        
+    },   
+    {
+        path: 'cita/eliminar/:id', 
+        component: EliminarCitasComponent
+        
+    }, 
+    {
+        path: '**', 
+        component: LabsComponent
+    },
+];
+
+

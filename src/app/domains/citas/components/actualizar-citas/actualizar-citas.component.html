@@ -1,0 +1,31 @@
+<div class="form-container">
+  <h2 class="form-title">Actualizar Cita</h2>
+  
+  <form [formGroup]="editarCitaForm" (ngSubmit)="onSubmit()">
+    <div class="form-group">
+      <label for="fecha">Fecha</label>
+      <input id="fecha" type="date" formControlName="fecha" class="form-control"/>
+      <div *ngIf="editarCitaForm.get('fecha')?.invalid && editarCitaForm.get('fecha')?.touched" class="error">
+        Fecha es requerida
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label for="hora">Hora</label>
+      <input id="hora" type="time" formControlName="hora" class="form-control"/>
+      <div *ngIf="editarCitaForm.get('hora')?.invalid && editarCitaForm.get('hora')?.touched" class="error">
+        Hora es requerida
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label for="titulo">Descripción</label>
+      <textarea id="titulo" formControlName="titulo" rows="4" class="form-control"></textarea>
+      <div *ngIf="editarCitaForm.get('titulo')?.invalid && editarCitaForm.get('titulo')?.touched" class="error">
+        Descripción es requerida
+      </div>
+    </div>
+
+    <button type="submit" class="btn-submit" [disabled]="editarCitaForm.invalid">Actualizar Cita</button>
+  </form>
+</div>
